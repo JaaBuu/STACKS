@@ -1,0 +1,68 @@
+Module Module1
+
+    
+    Structure STACK
+        Public stack() As Integer
+        Public basePointer As Integer
+        Public topPointer As Integer
+        Public stackStorage As Integer
+        Public Item As Integer
+
+        Sub New(ByVal topPointer As Integer)
+            stack(0) = Nothing
+            stack(1) = Nothing
+            stack(2) = Nothing
+            topPointer = -1
+            stackStorage = 3
+            basePointer = 0
+
+        End Sub
+
+
+
+        Sub push(ByVal item)
+            If topPointer < stackStorage - 1 Then
+                topPointer = topPointer + 1
+                stack(topPointer) = item
+            Else
+                Console.WriteLine("Stack is full, cannot push")
+            End If
+        End Sub
+
+
+
+        Sub Pop()
+
+            If topPointer = basePointer - 1 Then
+                Console.WriteLine("Stack is empty, cannot pop")
+            Else
+                Item = stack(topPointer)
+                topPointer = topPointer - 1
+            End If
+        End Sub
+
+    End Structure
+
+
+
+    Sub Main()
+
+        Dim st As STACK = New STACK
+
+        st.push(100)
+        st.push(200)
+        st.push(300)
+        Console.WriteLine(st)
+
+
+        st.Pop()
+
+        Console.WriteLine(st)
+
+
+
+        Console.ReadKey()
+
+    End Sub
+
+End Module
